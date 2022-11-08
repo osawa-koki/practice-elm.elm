@@ -4,6 +4,7 @@
         "eamodio.gitlens",
         "github.copilot",
         "mhutchie.git-graph",
-        "editorconfig.editorconfig"
+        "editorconfig.editorconfig",
+        "sbrink.elm"
     ]
 }
