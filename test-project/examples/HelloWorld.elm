@@ -7,7 +7,7 @@ import Html.Events exposing (onClick)
 
 main : Program () Model Msg
 main =
-    Browser.sandbox { init = init, update = update, view = view }
+  Browser.sandbox { init = init, update = update, view = view }
 
 
 
@@ -15,12 +15,12 @@ main =
 
 
 type alias Model =
-    String
+  String
 
 
 init : Model
 init =
-    ""
+  ""
 
 
 
@@ -28,18 +28,18 @@ init =
 
 
 type Msg
-    = ToggleText
+  = ToggleText
 
 
 update : Msg -> Model -> Model
 update msg model =
-    case msg of
-        ToggleText ->
-            if model == "" then
-                "Hello World!"
+  case msg of
+    ToggleText ->
+      if model == "" then
+        "Hello World!"
 
-            else
-                ""
+      else
+        ""
 
 
 
@@ -48,7 +48,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ button [ onClick ToggleText ] [ text "Toggle text" ]
-        , div [] [ text model ]
-        ]
+  div []
+    [ button [ onClick ToggleText ] [ text "Toggle text" ]
+    , div [] [ text model ]
+    ]
