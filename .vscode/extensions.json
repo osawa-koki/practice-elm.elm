@@ -5,6 +5,6 @@
         "github.copilot",
         "mhutchie.git-graph",
         "editorconfig.editorconfig",
-        "sbrink.elm"
+        "elmtooling.elm-ls-vscode"
     ]
 }
