@@ -10,6 +10,9 @@ elm reactor
 
 # ビルド
 elm make src/Main.elm
+
+# JSビルド
+elm make src/Main.elm --optimize --output=src/elm.js
 ```
 
 ## 参考文献
