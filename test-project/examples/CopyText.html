@@ -21,9 +21,9 @@ var app = Elm.Main.init({
 // WebSocketの通信を確立します
 var socket = new WebSocket('wss://echo.websocket.org');
 
-// `sendMessage`というポートにコマンドが送られてきたとき、
+// `copy_to_clip`というポートにコマンドが送られてきたとき、
 // 受け取ったメッセージをWebSocketに渡します
-app.ports.sendMessage.subscribe(function(message) {
+app.ports.copy_to_clip.subscribe(function(message) {
   navigator.clipboard.writeText(message)
 });
 
