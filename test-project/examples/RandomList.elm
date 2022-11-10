@@ -53,7 +53,7 @@ update msg model =
       )
 
     NewFace newFace ->
-      ( model
+      ( { model | ransomlist = List.map (\_ -> newFace) model.ransomlist }
       , Cmd.none
       )
 
