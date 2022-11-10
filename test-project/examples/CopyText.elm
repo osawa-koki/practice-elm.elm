@@ -26,7 +26,7 @@ main =
 -- PORTS
 
 
-port sendMessage : String -> Cmd msg
+port copy_to_clip : String -> Cmd msg
 port messageReceiver : (String -> msg) -> Sub msg
 
 
@@ -57,7 +57,7 @@ type Msg
   | Recv String
 
 
--- ユーザーがエンターキーを押すか、Send ボタンをクリックしたとき、`sendMessage`ポートを使っています。
+-- ユーザーがエンターキーを押すか、Send ボタンをクリックしたとき、`copy_to_clip`ポートを使っています。
 -- これがどんなふうにWebSocketとつながっているのかindex.htmlにあるJavaScriptと対応させてみてください。
 --
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -70,7 +70,7 @@ update msg model =
 
     Send ->
       ( { model | draft = "" }
-      , sendMessage model.draft
+      , copy_to_clip model.draft
       )
 
     Recv message ->
