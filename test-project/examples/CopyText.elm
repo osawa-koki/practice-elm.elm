@@ -36,13 +36,12 @@ port messageReceiver : (String -> msg) -> Sub msg
 
 type alias Model =
   { draft : String
-  , messages : List String
   }
 
 
 init : () -> ( Model, Cmd Msg )
 init flags =
-  ( { draft = "", messages = [] }
+  ( { draft = ""}
   , Cmd.none
   )
 
@@ -54,7 +53,6 @@ init flags =
 type Msg
   = DraftChanged String
   | CopyToClip
-  | Recv String
 
 
 -- ユーザーがエンターキーを押すか、CopyToClip ボタンをクリックしたとき、`copy_to_clip`ポートを使っています。
@@ -73,10 +71,6 @@ update msg model =
       , copy_to_clip model.draft
       )
 
-    Recv message ->
-      ( { model | messages = model.messages ++ [message] }
-      , Cmd.none
-      )
 
 
 
