@@ -53,11 +53,11 @@ init flags =
 
 type Msg
   = DraftChanged String
-  | Send
+  | CopyToClip
   | Recv String
 
 
--- ユーザーがエンターキーを押すか、Send ボタンをクリックしたとき、`copy_to_clip`ポートを使っています。
+-- ユーザーがエンターキーを押すか、CopyToClip ボタンをクリックしたとき、`copy_to_clip`ポートを使っています。
 -- これがどんなふうにWebSocketとつながっているのかindex.htmlにあるJavaScriptと対応させてみてください。
 --
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -68,7 +68,7 @@ update msg model =
       , Cmd.none
       )
 
-    Send ->
+    CopyToClip ->
       ( { model | draft = "" }
       , copy_to_clip model.draft
       )
@@ -105,11 +105,11 @@ view model =
         [ type_ "text"
         , placeholder "Draft"
         , onInput DraftChanged
-        , on "keydown" (ifIsEnter Send)
+        , on "keydown" (ifIsEnter CopyToClip)
         , value model.draft
         ]
         []
-    , button [ onClick Send ] [ text "Send" ]
+    , button [ onClick CopyToClip ] [ text "CopyToClip" ]
     , div [] []
     , textarea [ rows 40, cols 40 ] []
     ]
