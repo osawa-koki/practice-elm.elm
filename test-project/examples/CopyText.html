@@ -18,20 +18,13 @@ var app = Elm.Main.init({
   node: document.getElementById('myapp')
 });
 
-// WebSocketの通信を確立します
-var socket = new WebSocket('wss://echo.websocket.org');
-
 // `copy_to_clip`というポートにコマンドが送られてきたとき、
 // 受け取ったメッセージをWebSocketに渡します
 app.ports.copy_to_clip.subscribe(function(message) {
   navigator.clipboard.writeText(message)
 });
 
-// WebSocketがメッセージを受信したら、今度は
-// `messageReceiver`のポートを通してElmにメッセージを送ります
-socket.addEventListener("message", function(event) {
-  app.ports.messageReceiver.send(event.data);
-});
+app.ports.messageReceiver.send("");
 
 // WebSocketを扱うのにJavaScriptライブラリを
 // 使いたいときは、このコードの実装を置き換えてください
