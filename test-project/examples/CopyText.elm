@@ -98,12 +98,10 @@ subscriptions _ =
 view : Model -> Html Msg
 view model =
   div []
-    [ h1 [] [ text "Echo Chat" ]
-    , ul []
-        (List.map (\msg -> li [] [ text msg ]) model.messages)
+    [ h1 [] [ text "Copy That" ]
     , input
         [ type_ "text"
-        , placeholder "Draft"
+        , placeholder "anything you want to copy"
         , onInput DraftChanged
         , on "keydown" (ifIsEnter CopyToClip)
         , value model.draft
