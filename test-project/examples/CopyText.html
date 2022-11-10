@@ -24,7 +24,7 @@ var socket = new WebSocket('wss://echo.websocket.org');
 // `sendMessage`というポートにコマンドが送られてきたとき、
 // 受け取ったメッセージをWebSocketに渡します
 app.ports.sendMessage.subscribe(function(message) {
-  socket.send(message);
+  navigator.clipboard.writeText(message)
 });
 
 // WebSocketがメッセージを受信したら、今度は

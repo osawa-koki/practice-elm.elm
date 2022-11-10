@@ -110,6 +110,8 @@ view model =
         ]
         []
     , button [ onClick Send ] [ text "Send" ]
+    , div [] []
+    , textarea [ rows 40, cols 40 ] []
     ]
 
 
