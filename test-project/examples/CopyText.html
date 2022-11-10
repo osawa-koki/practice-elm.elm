@@ -8,14 +8,14 @@
 </head>
 
 <body>
-    <div id="myapp"></div>
+  <div id="myapp"></div>
 </body>
 
 <script type="text/javascript">
 
 // Elmアプリケーションを開始します
 var app = Elm.Main.init({
-    node: document.getElementById('myapp')
+  node: document.getElementById('myapp')
 });
 
 // WebSocketの通信を確立します
@@ -24,13 +24,13 @@ var socket = new WebSocket('wss://echo.websocket.org');
 // `sendMessage`というポートにコマンドが送られてきたとき、
 // 受け取ったメッセージをWebSocketに渡します
 app.ports.sendMessage.subscribe(function(message) {
-    socket.send(message);
+  socket.send(message);
 });
 
 // WebSocketがメッセージを受信したら、今度は
 // `messageReceiver`のポートを通してElmにメッセージを送ります
 socket.addEventListener("message", function(event) {
-    app.ports.messageReceiver.send(event.data);
+  app.ports.messageReceiver.send(event.data);
 });
 
 // WebSocketを扱うのにJavaScriptライブラリを
