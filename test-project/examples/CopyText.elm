@@ -88,7 +88,7 @@ update msg model =
 --
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-  messageReceiver Recv
+  Sub.none
 
 
 

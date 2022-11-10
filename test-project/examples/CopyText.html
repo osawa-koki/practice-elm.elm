@@ -24,8 +24,6 @@ app.ports.copy_to_clip.subscribe(function(message) {
   navigator.clipboard.writeText(message)
 });
 
-app.ports.messageReceiver.send("");
-
 // WebSocketを扱うのにJavaScriptライブラリを
 // 使いたいときは、このコードの実装を置き換えてください
 </script>
